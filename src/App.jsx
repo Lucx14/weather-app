@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
+import Weather from './components/Weather/Weather';
 import Forecast from './components/Forecast/Forecast';
 
 function App() {
   return (
     <div>
       <p>Weather App!</p>
-      <p>Weather forecast</p>
       <p>search field</p>
       <form onSubmit={() => {}}>
         <label htmlFor="city">
@@ -22,12 +22,9 @@ function App() {
         <input type="submit" value="Search" />
       </form>
       <p>Current Location</p>
-      <div>
-        <h5>Results of api call</h5>
-      </div>
-      <p>Current weather summary</p>
       <p>5 day weather forecast</p>
-      <Forecast city="London" />
+      <Weather city="London" />
+      <Forecast />
     </div>
   );
 }
