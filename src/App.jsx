@@ -24,7 +24,7 @@ function App() {
       <p>Current Location</p>
       <p>5 day weather forecast</p>
       <Weather city="London" />
-      <Forecast />
+      <Forecast city="London" />
     </div>
   );
 }

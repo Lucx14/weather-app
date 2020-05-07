@@ -55,7 +55,9 @@ const CurrentWeatherCard = (props) => {
         <Temp>{temp}&#8451;</Temp>
       </IconContainer>
       <p>{description}</p>
-      <p>{date}</p>
+      <p>
+        {date.hour}:{date.min} {date.month} {date.dayofMonth}
+      </p>
       <CardData>
         <GridItem>Wind</GridItem>
         <GridItem>Speed {windSpeed}m/s</GridItem>

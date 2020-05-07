@@ -20,10 +20,13 @@ export default function bespokeDateFormat(date) {
     'Dec',
   ];
 
-  const hour = formatNumber(date.getHours());
-  const min = formatNumber(date.getMinutes());
-  const month = months[date.getMonth()];
-  const dayofMonth = date.getDate();
+  const days = ['Sun', 'Mon', 'Tue', 'Weds', 'Thur', 'Fri', 'Sat'];
 
-  return `${hour}:${min} ${month} ${dayofMonth}`;
+  return {
+    hour: formatNumber(date.getHours()),
+    min: formatNumber(date.getMinutes()),
+    month: months[date.getMonth()],
+    dayofMonth: date.getDate(),
+    day: days[date.getDay()],
+  };
 }
