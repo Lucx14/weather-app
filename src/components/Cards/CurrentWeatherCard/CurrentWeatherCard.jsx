@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   border: 1px solid black;
   max-width: 300px;
   padding: 20px;
+  margin: 10px;
 `;
 
 const CardData = styled.div`

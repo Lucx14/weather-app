@@ -4,9 +4,17 @@ import PropTypes from 'prop-types';
 import DayWeatherCard from '../Cards/DayWeatherCard/DayWeatherCard';
 import useForecastApi from '../../hooks/useForecastApi';
 
+const Wrapper = styled.div`
+  border: solid black 1px;
+  margin: 2.4rem;
+  text-align: center;
+`;
+
 const ForecastWrapper = styled.div`
   border: 1px solid green;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 const Forecast = (props) => {
@@ -42,10 +50,10 @@ const Forecast = (props) => {
       {forecastApiLoading && <h1>API LOADING!!!</h1>}
       {forecastApiError && <h1>API ERROR!!!</h1>}
       {!forecastApiLoading && (
-        <div>
+        <Wrapper>
           <h1>5 day forecast (kind of!!)</h1>
           <ForecastWrapper>{weatherCards}</ForecastWrapper>
-        </div>
+        </Wrapper>
       )}
     </div>
   );
