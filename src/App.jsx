@@ -29,15 +29,21 @@ function App() {
     setCity(searchEntry);
   };
 
+  const submitGeolocationHandler = (geolocation) => {
+    setCity(geolocation);
+  };
+
   return (
     <Wrapper>
       <Header />
       <ContentWrapper>
-        <Search submit={searchSubmitHandler} />
+        <Search
+          submit={searchSubmitHandler}
+          updateApp={submitGeolocationHandler}
+        />
         <Weather city={city} />
         <Forecast city={city} />
       </ContentWrapper>
-
       <Footer />
     </Wrapper>
   );

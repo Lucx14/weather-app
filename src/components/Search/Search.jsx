@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import getLocation from '../../helpers/locationFinder';
+import apiGetWeatherUsingCoordinates from '../../api/coordinates';
 
 const SearchWrapper = styled.div`
-  border: solid 2px blue;
+  /* border: solid 2px blue; */
 `;
 
 const InnerSearchWrapper = styled.div`
@@ -44,7 +45,7 @@ const Button = styled.input`
 `;
 
 const Search = (props) => {
-  const { submit } = props;
+  const { submit, updateApp } = props;
   const [searchCity, setSearchCity] = useState('');
 
   const searchCityUpdateHandler = (event) => {
@@ -54,6 +55,18 @@ const Search = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     submit(searchCity);
+  };
+
+  const fetchCoordinates = async () => {
+    try {
+      const { coords } = await getLocation();
+      const { latitude, longitude } = coords;
+      const { name } = await apiGetWeatherUsingCoordinates(latitude, longitude);
+      updateApp(name);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
   };
 
   return (
@@ -69,9 +82,9 @@ const Search = (props) => {
           />
           <Button type="submit" value="Search" />
         </form>
-        {/* <button type="button" onClick={() => {}}>
+        <button type="button" onClick={fetchCoordinates}>
           Current Location
-        </button> */}
+        </button>
       </InnerSearchWrapper>
     </SearchWrapper>
   );
@@ -79,6 +92,7 @@ const Search = (props) => {
 
 Search.propTypes = {
   submit: PropTypes.func.isRequired,
+  updateApp: PropTypes.func.isRequired,
 };
 
 export default Search;
