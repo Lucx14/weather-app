@@ -9,10 +9,12 @@ const CardWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-  border: red solid 1px;
   width: 200px;
   text-align: center;
   margin: 10px;
+  background-color: #4d4d49;
+  color: #fbf8f4;
+  opacity: 0.9;
 `;
 
 const DayWeatherCard = (props) => {

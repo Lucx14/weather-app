@@ -4,44 +4,51 @@ import PropTypes from 'prop-types';
 import getLocation from '../../helpers/locationFinder';
 import apiGetWeatherUsingCoordinates from '../../api/coordinates';
 
-const SearchWrapper = styled.div`
-  /* border: solid 2px blue; */
-`;
+const SearchWrapper = styled.div``;
 
 const InnerSearchWrapper = styled.div`
-  border: solid black 1px;
   margin: 2.4rem;
   text-align: center;
-  padding: 20px;
+  padding: 1.875rem;
+  border-radius: 5px;
+  -webkit-box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
 `;
 
 const Input = styled.input`
   background: none;
-  width: 300px;
+  width: 250px;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 30px;
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: black solid 2px;
   outline: none;
-  color: blue;
 `;
 
 const Button = styled.input`
-  margin-left: 30px;
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
   font-size: 1.2rem;
   border-radius: 5px;
-  color: red;
-  background-color: yellow;
+  color: white;
+  background-color: #ff7200;
   outline: 0;
   border: none;
-  :focus {
-    /* outline: none; */
-  }
   :active {
-    background-color: green;
+    background-color: #fe7d08;
   }
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 1.25rem;
 `;
 
 const Search = (props) => {
@@ -82,9 +89,13 @@ const Search = (props) => {
           />
           <Button type="submit" value="Search" />
         </form>
-        <button type="button" onClick={fetchCoordinates}>
-          Current Location
-        </button>
+        <ButtonWrapper>
+          <Button
+            type="button"
+            onClick={fetchCoordinates}
+            value="Current Location"
+          />
+        </ButtonWrapper>
       </InnerSearchWrapper>
     </SearchWrapper>
   );

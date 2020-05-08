@@ -5,16 +5,22 @@ import DayWeatherCard from '../Cards/DayWeatherCard/DayWeatherCard';
 import useForecastApi from '../../hooks/useForecastApi';
 
 const Wrapper = styled.div`
-  border: solid black 1px;
+  border-radius: 7px;
   margin: 2.4rem;
+  padding: 1.25rem;
   text-align: center;
+  background-color: rgba(247, 226, 157, 0.2);
 `;
 
 const ForecastWrapper = styled.div`
-  border: 1px solid green;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+`;
+
+const H1 = styled.h1`
+  font-weight: 400;
+  color: #45484b;
 `;
 
 const Forecast = (props) => {
@@ -51,7 +57,7 @@ const Forecast = (props) => {
       {forecastApiError && <h1>API ERROR!!!</h1>}
       {!forecastApiLoading && (
         <Wrapper>
-          <h1>5 day forecast (kind of!!)</h1>
+          <H1>5 day weather forecast</H1>
           <ForecastWrapper>{weatherCards}</ForecastWrapper>
         </Wrapper>
       )}

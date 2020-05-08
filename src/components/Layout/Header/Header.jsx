@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   height: 10rem;
 `;
 
+const H1 = styled.h1`
+  font-weight: 400;
+`;
+
 const InnerWrapper = styled.div`
   margin: 2.4rem;
   display: flex;
@@ -28,7 +32,7 @@ const Header = () => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <h1>Weather Forecast</h1>
+        <H1>Weather Forecast</H1>
         <IconsWrapper>
           <i className="owf owf-800 owf-3x" />
           <i className="owf owf-202 owf-3x" />

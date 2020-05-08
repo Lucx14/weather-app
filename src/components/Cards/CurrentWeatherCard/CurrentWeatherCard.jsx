@@ -4,15 +4,21 @@ import PropTypes from 'prop-types';
 import bespokeDateFormat from '../../../helpers/dateFormatter';
 
 const Wrapper = styled.div`
-  border: 1px solid black;
   max-width: 300px;
   padding: 20px;
   margin: 10px;
+  background-color: #4d4d49;
+  color: #fbf8f4;
+  -webkit-box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);
 `;
 
 const CardData = styled.div`
   display: flex;
-  border: 1px solid grey;
+  border: 1px solid #4d4d49;
+  background-color: #f7f3e8;
+  color: #45484b;
 `;
 
 const GridItem = styled.div`
@@ -60,12 +66,12 @@ const CurrentWeatherCard = (props) => {
         {date.hour}:{date.min} {date.month} {date.dayofMonth}
       </p>
       <CardData>
-        <GridItem>Wind</GridItem>
-        <GridItem>Speed {windSpeed}m/s</GridItem>
+        <GridItem>Wind Speed</GridItem>
+        <GridItem>{windSpeed}m/s</GridItem>
       </CardData>
       <CardData>
-        <GridItem>Cloudiness</GridItem>
-        <GridItem>Coverage {cloudCover}%</GridItem>
+        <GridItem>Cloud Coverage</GridItem>
+        <GridItem>{cloudCover}%</GridItem>
       </CardData>
       <CardData>
         <GridItem>Pressure</GridItem>
@@ -74,10 +80,6 @@ const CurrentWeatherCard = (props) => {
       <CardData>
         <GridItem>Humidity</GridItem>
         <GridItem>{humidity}%</GridItem>
-      </CardData>
-      <CardData>
-        <GridItem>Rain</GridItem>
-        <GridItem>0mm</GridItem>
       </CardData>
     </Wrapper>
   );

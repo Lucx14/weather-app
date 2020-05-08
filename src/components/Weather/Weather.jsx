@@ -7,7 +7,6 @@ import useWeatherApi from '../../hooks/useWeatherApi';
 import CurrentWeatherCard from '../Cards/CurrentWeatherCard/CurrentWeatherCard';
 
 const Wrapper = styled.div`
-  border: solid black 1px;
   margin: 2.4rem;
 `;
 
