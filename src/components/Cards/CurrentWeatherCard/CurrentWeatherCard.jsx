@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   max-width: 300px;
   padding: 20px;
   margin: 10px;
+  border-radius: 4px;
   background-color: #4d4d49;
   color: #fbf8f4;
   -webkit-box-shadow: -1px 4px 26px 6px rgba(0, 0, 0, 0.5);

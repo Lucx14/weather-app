@@ -15,6 +15,9 @@ export default function useForecastApi() {
         setError(false);
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+        setLoading(false);
         setError(true);
       });
   }, []);

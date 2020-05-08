@@ -53,9 +53,7 @@ const Forecast = (props) => {
 
   return (
     <div>
-      {forecastApiLoading && <h1>API LOADING!!!</h1>}
-      {forecastApiError && <h1>API ERROR!!!</h1>}
-      {!forecastApiLoading && (
+      {!forecastApiLoading && !forecastApiError && (
         <Wrapper>
           <H1>5 day weather forecast</H1>
           <ForecastWrapper>{weatherCards}</ForecastWrapper>

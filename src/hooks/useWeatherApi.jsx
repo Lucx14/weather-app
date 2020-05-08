@@ -25,6 +25,7 @@ export default function useWeatherApi() {
         setError(false);
       })
       .catch(() => {
+        setLoading(false);
         setError(true);
       });
   }, []);

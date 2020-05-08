@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import useWeatherApi from '../../hooks/useWeatherApi';
-// http://websygen.github.io/owfont/#usage
+import LoadingModal from '../Layout/Modal/LoadingModal';
+import ErrorModal from '../Layout/Modal/ErrorModal';
 
 import CurrentWeatherCard from '../Cards/CurrentWeatherCard/CurrentWeatherCard';
 
@@ -25,9 +26,17 @@ const Weather = (props) => {
 
   return (
     <div>
-      {weatherApiLoading && <h1>API LOADING!!!!</h1>}
-      {weatherApiError && <h1>API ERROR!!!!</h1>}
-      {!weatherApiLoading && (
+      {weatherApiLoading && (
+        <Wrapper>
+          <LoadingModal />
+        </Wrapper>
+      )}
+      {weatherApiError && (
+        <Wrapper>
+          <ErrorModal />
+        </Wrapper>
+      )}
+      {!weatherApiLoading && !weatherApiError && (
         <Wrapper>
           <CurrentWeatherCard
             city={weatherData.city}

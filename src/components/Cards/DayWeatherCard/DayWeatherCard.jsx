@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   text-align: center;
   margin: 10px;
   background-color: #4d4d49;
+  border-radius: 4px;
   color: #fbf8f4;
   opacity: 0.9;
 `;

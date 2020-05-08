@@ -45,6 +45,10 @@ const Button = styled.input`
   :hover {
     cursor: pointer;
   }
+  :disabled {
+    background-color: #4d4d49;
+    opacity: 0.3;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -54,6 +58,7 @@ const ButtonWrapper = styled.div`
 const Search = (props) => {
   const { submit, updateApp } = props;
   const [searchCity, setSearchCity] = useState('');
+  const [geoLoading, setGeoLoading] = useState(false);
 
   const searchCityUpdateHandler = (event) => {
     setSearchCity(event.target.value);
@@ -66,6 +71,7 @@ const Search = (props) => {
 
   const fetchCoordinates = async () => {
     try {
+      setGeoLoading(true);
       const { coords } = await getLocation();
       const { latitude, longitude } = coords;
       const { name } = await apiGetWeatherUsingCoordinates(latitude, longitude);
@@ -73,6 +79,8 @@ const Search = (props) => {
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error);
+    } finally {
+      setGeoLoading(false);
     }
   };
 
@@ -87,13 +95,14 @@ const Search = (props) => {
             name="city-name"
             placeholder="Your city name"
           />
-          <Button type="submit" value="Search" />
+          <Button type="submit" value="Search" disabled={geoLoading} />
         </form>
         <ButtonWrapper>
           <Button
             type="button"
             onClick={fetchCoordinates}
             value="Current Location"
+            disabled={geoLoading}
           />
         </ButtonWrapper>
       </InnerSearchWrapper>
