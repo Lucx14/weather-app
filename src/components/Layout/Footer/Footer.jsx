@@ -11,8 +11,12 @@ const Wrapper = styled.div`
   height: 10rem;
 `;
 
+const LinkTag = styled.a`
+  color: white;
+  text-decoration: none;
+`;
+
 const InnerWrapper = styled.div`
-  /* border: solid black 1px; */
   margin: 2.4rem;
   text-align: center;
 `;
@@ -21,8 +25,9 @@ const Footer = () => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <p>Designed and developed by Lucx14</p>
-        <p>Code on github</p>
+        <LinkTag href="https://github.com/Lucx14/weather-app">
+          View code
+        </LinkTag>
       </InnerWrapper>
     </Wrapper>
   );
